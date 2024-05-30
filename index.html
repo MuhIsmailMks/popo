@@ -138,9 +138,11 @@
         function updateHTMLElement() {
             const image_top = document.querySelector('.image_top');
             if (window.innerWidth < 784) {
-                image_top.src = './assets/images/Wendys/mobile.png';
+                image_top.src = './assets/images/Wendys/mobile.png'; 
+                 copybtnValue.innerHTML = 'CA 0X...EAD';
             } else {
-                image_top.src = './assets/images/Wendys/desktop.png';
+                image_top.src = './assets/images/Wendys/desktop.png'; 
+                 copybtnValue.innerHTML = 'CA 0x000000000000000000000000000000000000dEaD';
             }
         }
 
