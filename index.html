@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/Wendys/girl.png">
+
+    <!-- aos animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=RocknRoll+One&display=swap"
+        rel="stylesheet">
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Wendys</title>
+</head>
+
+<body>
+
+    <div class="container_site max-w-[100%] relative w-full h-auto min-h-[100vh] overflow-hidden">
+
+        <!-- hero section -->
+        <section class="hero relative w-full h-auto flex justify-center items-center">
+            <!-- image top -->
+            <img src="./assets/images/Wendys/desktop.png" alt=""
+                class="image_top w-full h-auto object-cover absolute  left-0 top-0">
+
+            <!-- main image -->
+            <img src="./assets/images/Wendys/countercombined.png" alt=""
+                class="w-full h-[440px] md:h-[600px] xl:h-auto relative object-cover z-10 mt-[190px] xl:mt-[50px]">
+
+            <!-- text image -->
+            <div
+                class="absolute w-full xl:w-[90%] h-auto left-0 xl:left-auto top-[24%] xl:top-[30%]  items-end flex flex-col xl:flex-row xl:justify-between">
+                <img src="./assets/images/Wendys/bbigwenys.png" alt=""
+                    class="h-auto w-[60vw] xl:w-[30vw] object-contain">
+                <img src="./assets/images/Wendys/bigpepe.png" alt="" class="h-auto w-[42vw] xl:w-[30vw] object-contain">
+            </div>
+
+        </section>
+
+        <!-- contact section -->
+        <section class="contract w-full h-auto relative cursor-pointer flex justify-center items-center ">
+            <img src="./assets/images/Wendys/contact_image.png" alt="contact bg" class="w-full object-cover h-[90px]">
+            <p class="absolute value pt-[1.5rem] leading-[1] text-white text-[40px]"
+                data-set="0x000000000000000000000000000000000000">CA 0x000000000000000000000000000000000000dEaD</p>
+        </section>
+
+        <!-- join section -->
+        <section class="join relative w-full h-[534px] min-[2000px]:h-[650px] max-w-[100%] flex justify-center">
+
+            <!-- background animation -->
+            <div class="absolute left-0 bottom-0 h-full w-full">
+                <video
+                    class="videoAutoPlay absolute bottom-0 w-[120vw] h-full xl:h-full object-cover opacity-[.35] min-[1200px]:opacity-[0.02]"
+                    autoplay loop muted playsinline>
+                    <source src="./assets/bnder.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- title -->
+            <img src="./assets/images/Wendys/join.png" alt=""
+                class="absolute z-[1]  xl:top-[-50px]  min-[2000px]:top-[-100px] object-cover xl:object-contain w-auto h-[150px] xl:h-[340px]  min-[2000px]:h-[450px]">
+
+            <!-- wepe -->
+            <img src="./assets/images/Wendys/wepe.png" alt=""
+                class="absolute z-[1] bottom-0 object-contain w-auto h-[340px]  min-[2000px]:h-[450px]">
+
+            <!-- social media -->
+            <div
+                class="absolute z-10 social w-full xl:w-[40%] top-[25%] xl:top-[40%] flex justify-center xl:justify-end items-center gap-[1rem]">
+
+                <a href="#telegram"
+                    class="bg-white duration-300 btn_hover border-[1px] border-black rounded-full h-[60px] w-[60px] flex justify-center items-center ">
+                    <img src="./assets/images/Wendys/telegram.svg" alt="" class="w-[50%] h-auto object-contain">
+                </a>
+                <a href="#twitter"
+                    class="bg-white duration-300 btn_hover border-[1px] border-black rounded-full h-[60px] w-[60px] flex justify-center items-center ">
+                    <img src="./assets/images/Wendys/twitter.svg" alt="" class="w-[50%] h-auto object-contain">
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- aos js scroll animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // aos 
+        AOS.init({
+            once: true
+        });
+
+        // copy address
+        const copybtn = document.querySelector('.contract')
+        const copybtnValue = document.querySelector('.contract .value')
+
+        copybtn.addEventListener("click", function () {
+            let textCopied = copybtn.querySelector('.value');
+            let intervalId;
+            let addressText = document.querySelector(".value").getAttribute('data-set');
+            textCopied.innerHTML = 'COPIED';
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+
+            if (window.innerWidth < 784) {
+                intervalId = setInterval(() => {
+                    textCopied.innerHTML = 'CA 0X...EAD';
+                    clearInterval(intervalId);
+                }, 1000);
+            } else {
+                intervalId = setInterval(() => {
+                    textCopied.innerHTML = 'CA 0x000000000000000000000000000000000000dEaD';
+                    clearInterval(intervalId);
+                }, 1000);
+            }
+
+
+            navigator.clipboard.writeText(addressText);
+        });
+
+        // change image 
+        function updateHTMLElement() {
+            const image_top = document.querySelector('.image_top');
+            if (window.innerWidth < 784) {
+                image_top.src = './assets/images/Wendys/mobile.png';
+            } else {
+                image_top.src = './assets/images/Wendys/desktop.png';
+            }
+        }
+
+        window.onload = updateHTMLElement;
+        window.onresize = updateHTMLElement;
+
+        // autoplay video
+        document.addEventListener("DOMContentLoaded", function () {
+            let video = document.querySelector('.videoAutoPlay');
+
+            function playVideo(video) {
+                if (video.paused) {
+                    video.play().catch(function (error) {
+                        console.error("Video play was prevented:", error);
+                    });
+                }
+            }
+
+            if (video) {
+                video.addEventListener('play', function () {
+                    video.muted = true;
+                });
+
+                video.addEventListener('loadeddata', function () {
+                    playVideo(video);
+                });
+
+                video.muted = true;
+                video.controls = false;
+
+                video.addEventListener('canplaythrough', function () {
+                    video.play();
+                }, true);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
