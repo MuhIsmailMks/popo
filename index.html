@@ -90,8 +90,8 @@
 
             <!-- background animation -->
             <div class="absolute left-0 bottom-0 h-full w-full">
-                <video
-                    class="videoAutoPlay absolute bottom-0 w-[120vw] h-full xl:h-full object-cover "
+                <video id="videoElement"
+                    class="videoAutoPlay absolute bottom-0 w-[120vw] h-full xl:h-full object-cover"
                     autoplay loop muted playsinline>
                     <source src="./assets/bnder.mp4" type="video/mp4">
                 </video> 
@@ -204,6 +204,15 @@
         window.onresize = updateHTMLElement;
 
         // autoplay video
+        const video = document.getElementById('videoElement');
+
+video.addEventListener('timeupdate', () => {
+    if (video.currentTime >= 5) {
+        video.currentTime = 0;
+        video.play();
+    }
+});
+
         document.addEventListener("DOMContentLoaded", function () {
             let video = document.querySelector('.videoAutoPlay');
 
