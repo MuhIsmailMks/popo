@@ -47,11 +47,9 @@
                     <img src="./assets/images/Wendys/telegram.png" alt="" class="h-auto object-contain w-[9vw] md:w-[8vw]">
                 </a>
             </div>
-
+ 
             <div class="menu-button z-[100] absolute right-[30px]">
-                <span></span>
-                <span></span>
-                <span></span>
+               <img src="./assets/images/Wendys/humber.png" alt="" class="h-auto w-[70px] object-contain">
             </div>
 
 
@@ -143,13 +141,23 @@
         });
 
             // menu navbar
-            const menu = document.querySelector('.menu');
-        const menuBtn = document.querySelector('.menu-button');
+            document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('.menu');
+    const menuBtn = document.querySelector('.menu-button');
+    const menuBtnImg = document.querySelector('.menu-button img');
 
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active')
-            menu.classList.toggle('active')
-        });
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        menu.classList.toggle('active');
+
+        if (menuBtn.classList.contains('active')) { 
+            menuBtnImg.src = './assets/images/Wendys/humbur_close.png'
+        } else {
+            menuBtnImg.src = './assets/images/Wendys/humber.png'
+        }
+    });
+});
+
 
         // copy address
         const copybtn = document.querySelector('.contract')
