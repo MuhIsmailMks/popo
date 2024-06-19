@@ -1,73 +1,100 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-@font-face {
-  font-family: "cees";
-  src: url("../fonts/Cees\ Hand\ Regular.ttf");
-}
-
-:root {
-  --font_cees: "cees", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font_cees);
-  background-color: #ffffc3;
-}
-
-.btn_hover {
-  box-shadow: 1px 3px 0 black;
-}
-
-.btn_hover:hover {
-  box-shadow: 0px 0px 0 black;
-  transform: scale(1.1);
-}
-
-.links_hover {
-  transition: 0.3s ease-in-out;
-}
-
-.links_hover:hover {
-  transform: scale(1.1);
-}
-
-
-
-/* menu button */
-.menu-button {
-  display: none;
-  overflow: hidden;
-
-  height: 55px;
-  width: 75px;
-
-  position: relative;
-
-  align-items: center;
+*{
+    margin: 0;
+    padding: 0;
 }
  
+@font-face {
+    font-family: "gentyDemo";
+    src: url('../fonts/GentyDemo-Regular.otf');
+}
+ 
+:root{    
+    --font-gentyDemo:"gentyDemo", sans-serif;     
+}
 
-/* media queries */
-@media screen and (max-width:724px){
-    .menu-button{
-        display: flex;
-        position: absolute;
-        right: 0; 
+body{
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+ 
+    font-family: var(--font-gentyDemo);
+    color: white;
+}
+ 
+.unbounded_font {
+  font-family: "Unbounded", sans-serif; 
+}
+ 
+.gluten_font {
+  font-family: "Gluten", cursive; 
+}
+
+.sol_img {
+    filter: grayscale(100%) brightness(200%);
+}
+
+.mirror_img {
+    transform: scaleX(-1); 
+}
+
+
+/* animation */
+.float_animation{
+    animation: float_animation 3s linear infinite ;
+}
+
+@keyframes float_animation {
+    0%,100%{
+        transform: translateY(0%);
     }
-
-    .links.menu{
-        transform: translateX(-200%);
+    50%{
+        transform: translateY(3%);
     }
+}
 
-    .links.menu.active{
+.cloud_animation{
+    animation: cloud_animation 10s linear infinite ;
+}
+
+@keyframes cloud_animation {
+    0%,100%{
+        transform: translateX(10%);
+    }
+    50%{
+        transform: translateX(-10%);
+    }
+}
+
+.cloud_animation_reverse{
+    animation: cloud_animation_reverse 10s linear infinite ;
+}
+
+@keyframes cloud_animation_reverse {
+    0%,100%{
         transform: translateX(0%);
     }
+    50%{
+        transform: translateX(10%);
+    }
+}
+
+.rotate_image{
+    animation: rotate_image 17s linear infinite ;
+}
+
+@keyframes rotate_image {
+    0%{
+        transform:rotate(0deg) ;
+    }
+    100%{
+        transform:rotate(360deg) ;  
+    } 
 }
  
+.lampion {  
+    transform-origin: 50% 4px;
+    animation: l15 3s infinite cubic-bezier(0.5,300,0.5,-300);
+  }
+  @keyframes l15 { 
+   100% {transform: rotate(0.05deg)}
+  }
